@@ -113,5 +113,81 @@ public class MainActivity extends AppCompatActivity {
                 ShowOperations.setText(ShowOperations.getText() + "9");
             }
         });
+
+        addition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (ShowOperations == null) {
+                    ShowOperations.setText("");
+                } else {
+                    mValueOne = Float.parseFloat(ShowOperations.getText() + "");
+                    additionValue = true;
+                    ShowOperations.setText(null);
+                }
+            }
+        });
+        minus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mValueOne = Float.parseFloat(ShowOperations.getText() + "");
+                minusValue = true;
+                ShowOperations.setText(null);
+            }
+        });
+        multiplication.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mValueOne = Float.parseFloat(ShowOperations.getText() + "");
+                multiplicationValue = true;
+                ShowOperations.setText(null);
+            }
+        });
+        division.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mValueOne = Float.parseFloat(ShowOperations.getText() + "");
+                divisionValue = true;
+                ShowOperations.setText(null);
+            }
+        });
+        equals.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mValueTwo = Float.parseFloat(ShowOperations.getText() + "");
+
+                if (additionValue == true) {
+                    ShowOperations.setText(mValueOne + mValueTwo + "");
+                    additionValue = false;
+                }
+
+                if (minusValue == true) {
+                    ShowOperations.setText(mValueOne - mValueTwo + "");
+                    minusValue = false;
+                }
+
+                if (multiplicationValue == true) {
+                    ShowOperations.setText(mValueOne * mValueTwo + "");
+                    multiplicationValue = false;
+                }
+
+                if (divisionValue == true) {
+                    ShowOperations.setText(mValueOne / mValueTwo + "");
+                    divisionValue = false;
+                }
+            }
+        });
+        c.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ShowOperations.setText("");
+            }
+        });
+        dot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ShowOperations.setText(ShowOperations.getText() + ".");
+            }
+        });
     }
 }
