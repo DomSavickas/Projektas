@@ -151,29 +151,46 @@ public class MainActivity extends AppCompatActivity {
                 ShowOperations.setText(null);
             }
         });
+        root.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mValueOne = Float.parseFloat(ShowOperations.getText() + "");
+                rootValue = true;
+                ShowOperations.setText(null);
+            }
+        });
         equals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mValueTwo = Float.parseFloat(ShowOperations.getText() + "");
 
                 if (additionValue == true) {
+                    mValueTwo = Float.parseFloat(ShowOperations.getText() + "");
                     ShowOperations.setText(mValueOne + mValueTwo + "");
                     additionValue = false;
                 }
 
                 if (minusValue == true) {
+                    mValueTwo = Float.parseFloat(ShowOperations.getText() + "");
                     ShowOperations.setText(mValueOne - mValueTwo + "");
                     minusValue = false;
                 }
 
                 if (multiplicationValue == true) {
+                    mValueTwo = Float.parseFloat(ShowOperations.getText() + "");
                     ShowOperations.setText(mValueOne * mValueTwo + "");
                     multiplicationValue = false;
                 }
 
                 if (divisionValue == true) {
+                    mValueTwo = Float.parseFloat(ShowOperations.getText() + "");
                     ShowOperations.setText(mValueOne / mValueTwo + "");
                     divisionValue = false;
+                }
+                if (rootValue == true) {
+                    if (mValueOne>0) {
+                        ShowOperations.setText(Math.sqrt(mValueOne) + "");
+                        rootValue = false;
+                    }
                 }
             }
         });
@@ -185,8 +202,14 @@ public class MainActivity extends AppCompatActivity {
         });
         dot.setOnClickListener(new View.OnClickListener() {
             @Override
+                public void onClick(View v) {
+                    ShowOperations.setText(ShowOperations.getText() + ".");
+            }
+        });
+        plusminus.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
-                ShowOperations.setText(ShowOperations.getText() + ".");
+                ShowOperations.setText( "-" + ShowOperations.getText());
             }
         });
     }
