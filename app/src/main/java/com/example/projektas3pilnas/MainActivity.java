@@ -3,6 +3,7 @@ package com.example.projektas3pilnas;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -14,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     TextView ShowOperations;
 
     float mValueOne, mValueTwo;
-    
+    String deletionString, checkString;
     boolean rootValue, divisionValue, procentValue, multiplicationValue, minusValue, additionValue, onexValue;
 
     @Override
@@ -117,81 +118,131 @@ public class MainActivity extends AppCompatActivity {
         addition.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if (ShowOperations == null) {
-                    ShowOperations.setText("");
-                } else {
-                    mValueOne = Float.parseFloat(ShowOperations.getText() + "");
+                String checkString = ShowOperations.getText().toString();
+                if (checkString.equals("")){ShowOperations.setText("");}
+                else {mValueOne = Float.parseFloat(ShowOperations.getText() + "");
                     additionValue = true;
-                    ShowOperations.setText(null);
-                }
+                    ShowOperations.setText(null);}
             }
         });
         minus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mValueOne = Float.parseFloat(ShowOperations.getText() + "");
+                String checkString = ShowOperations.getText().toString();
+                if (checkString.equals("")){ShowOperations.setText("");}
+                else {mValueOne = Float.parseFloat(ShowOperations.getText() + "");
                 minusValue = true;
-                ShowOperations.setText(null);
+                ShowOperations.setText(null);}
             }
         });
         multiplication.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mValueOne = Float.parseFloat(ShowOperations.getText() + "");
+                String checkString = ShowOperations.getText().toString();
+                if (checkString.equals("")){ShowOperations.setText("");}
+                else{mValueOne = Float.parseFloat(ShowOperations.getText() + "");
                 multiplicationValue = true;
-                ShowOperations.setText(null);
+                ShowOperations.setText(null);}
             }
         });
         division.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mValueOne = Float.parseFloat(ShowOperations.getText() + "");
+                String checkString = ShowOperations.getText().toString();
+                if (checkString.equals("")){ShowOperations.setText("");}
+                else{mValueOne = Float.parseFloat(ShowOperations.getText() + "");
                 divisionValue = true;
-                ShowOperations.setText(null);
+                ShowOperations.setText(null);}
             }
         });
         root.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mValueOne = Float.parseFloat(ShowOperations.getText() + "");
+                String checkString = ShowOperations.getText().toString();
+                if (checkString.equals("")){ShowOperations.setText("");}
+                else{mValueOne = Float.parseFloat(ShowOperations.getText() + "");
                 rootValue = true;
-                ShowOperations.setText(null);
+                ShowOperations.setText(null);}
+            }
+        });
+        onex.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String checkString = ShowOperations.getText().toString();
+                if (checkString.equals("")){ShowOperations.setText("");}
+                else{mValueOne = Float.parseFloat(ShowOperations.getText() + "");
+                onexValue = true;
+                ShowOperations.setText(null);}
+            }
+        });
+        procent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String checkString = ShowOperations.getText().toString();
+                if (checkString.equals("")){ShowOperations.setText("");}
+                else{mValueOne = Float.parseFloat(ShowOperations.getText() + "");
+                procentValue = true;
+                ShowOperations.setText(null);}
             }
         });
         equals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String checkString = ShowOperations.getText().toString();
+                if (checkString.equals("")){ShowOperations.setText("");}
+                else {
+                    if (additionValue == true) {
+                        mValueTwo = Float.parseFloat(ShowOperations.getText() + "");
+                        ShowOperations.setText(mValueOne + mValueTwo + "");
+                        additionValue = false;
+                    }
 
-                if (additionValue == true) {
-                    mValueTwo = Float.parseFloat(ShowOperations.getText() + "");
-                    ShowOperations.setText(mValueOne + mValueTwo + "");
-                    additionValue = false;
-                }
+                    if (minusValue == true) {
+                        mValueTwo = Float.parseFloat(ShowOperations.getText() + "");
+                        ShowOperations.setText(mValueOne - mValueTwo + "");
+                        minusValue = false;
+                    }
 
-                if (minusValue == true) {
-                    mValueTwo = Float.parseFloat(ShowOperations.getText() + "");
-                    ShowOperations.setText(mValueOne - mValueTwo + "");
-                    minusValue = false;
-                }
+                    if (multiplicationValue == true) {
+                        mValueTwo = Float.parseFloat(ShowOperations.getText() + "");
+                        ShowOperations.setText(mValueOne * mValueTwo + "");
+                        multiplicationValue = false;
+                    }
 
-                if (multiplicationValue == true) {
-                    mValueTwo = Float.parseFloat(ShowOperations.getText() + "");
-                    ShowOperations.setText(mValueOne * mValueTwo + "");
-                    multiplicationValue = false;
-                }
-
-                if (divisionValue == true) {
-                    mValueTwo = Float.parseFloat(ShowOperations.getText() + "");
-                    ShowOperations.setText(mValueOne / mValueTwo + "");
-                    divisionValue = false;
-                }
-                if (rootValue == true) {
-                    if (mValueOne>0) {
-                        ShowOperations.setText(Math.sqrt(mValueOne) + "");
-                        rootValue = false;
+                    if (divisionValue == true) {
+                        mValueTwo = Float.parseFloat(ShowOperations.getText() + "");
+                        if (mValueTwo == 0 || mValueOne == 0) {
+                            ShowOperations.setText("Error");
+                        } else {
+                            ShowOperations.setText(mValueOne / mValueTwo + "");
+                            divisionValue = false;
+                        }
+                    }
+                    if (onexValue == true) {
+                        mValueTwo = Float.parseFloat(ShowOperations.getText() + "");
+                        ShowOperations.setText(Math.pow(mValueOne, mValueTwo) + "");
+                        onexValue = false;
+                    }
+                    if (procentValue == true) {
+                        mValueTwo = Float.parseFloat(ShowOperations.getText() + "");
+                        ShowOperations.setText((mValueTwo / 100) * mValueOne + "");
+                        procentValue = false;
+                    }
+                    if (rootValue == true) {
+                        if (mValueOne > 0) {
+                            ShowOperations.setText(Math.sqrt(mValueOne) + "");
+                            rootValue = false;
+                        } else {
+                            ShowOperations.setText("Error");
+                        }
                     }
                 }
+            }
+        });
+        c.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ShowOperations.setText("");
             }
         });
         c.setOnClickListener(new View.OnClickListener() {
@@ -209,7 +260,18 @@ public class MainActivity extends AppCompatActivity {
         plusminus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ShowOperations.setText( "-" + ShowOperations.getText());
+                String checkString = ShowOperations.getText().toString();
+                if (checkString.equals("")){ShowOperations.setText("");}
+                else{ShowOperations.setText( "-" + ShowOperations.getText());}
+            }
+        });
+        arrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               String deletionString = ShowOperations.getText().toString();
+               if (deletionString.equals("")){ShowOperations.setText("");}
+               else {String newString = deletionString.substring(0, deletionString.length() - 1);
+               ShowOperations.setText(newString);}
             }
         });
     }

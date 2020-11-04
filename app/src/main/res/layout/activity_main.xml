@@ -22,11 +22,10 @@
 
             <TextView
                 android:id="@+id/ShowOperations"
-                android:maxLines="1"
+                android:singleLine="true"
                 android:layout_weight="2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="10dp"
                 android:gravity="center|right"
                 android:textColor="#000000"
                 android:textSize="30sp" />
@@ -120,19 +119,19 @@
                 android:layout_height="match_parent"
                 style="?android:attr/borderlessButtonStyle"
                 android:background="@drawable/numberbuttonborder"
-                android:text="7" />
+                android:text="@string/nr7" />
             <Button
                 android:id="@+id/Eight"
                 android:layout_height="match_parent"
                 style="?android:attr/borderlessButtonStyle"
                 android:background="@drawable/numberbuttonborder"
-                android:text="8" />
+                android:text="@string/nr8" />
             <Button
                 android:id="@+id/Nine"
                 android:layout_height="match_parent"
                 style="?android:attr/borderlessButtonStyle"
                 android:background="@drawable/numberbuttonborder"
-                android:text="9" />
+                android:text="@string/nr9" />
             <Button
                 android:id="@+id/Division"
                 android:layout_height="match_parent"
@@ -157,19 +156,19 @@
                 android:layout_height="match_parent"
                 style="?android:attr/borderlessButtonStyle"
                 android:background="@drawable/numberbuttonborder"
-                android:text="4" />
+                android:text="@string/nr4" />
             <Button
                 android:id="@+id/Five"
                 android:layout_height="match_parent"
                 style="?android:attr/borderlessButtonStyle"
                 android:background="@drawable/numberbuttonborder"
-                android:text="5" />
+                android:text="@string/nr5" />
             <Button
                 android:id="@+id/Six"
                 android:layout_height="match_parent"
                 style="?android:attr/borderlessButtonStyle"
                 android:background="@drawable/numberbuttonborder"
-                android:text="6" />
+                android:text="@string/nr6" />
             <Button
                 android:id="@+id/Multiplication"
                 android:layout_height="match_parent"
@@ -194,19 +193,19 @@
                 android:layout_height="match_parent"
                 style="?android:attr/borderlessButtonStyle"
                 android:background="@drawable/numberbuttonborder"
-                android:text="1" />
+                android:text="@string/nr1" />
             <Button
                 android:id="@+id/Two"
                 android:layout_height="match_parent"
                 style="?android:attr/borderlessButtonStyle"
                 android:background="@drawable/numberbuttonborder"
-                android:text="2" />
+                android:text="@string/nr2" />
             <Button
                 android:id="@+id/Three"
                 android:layout_height="match_parent"
                 style="?android:attr/borderlessButtonStyle"
                 android:background="@drawable/numberbuttonborder"
-                android:text="3" />
+                android:text="@string/nr3" />
             <Button
                 android:id="@+id/Subtraction"
                 android:layout_height="match_parent"
@@ -231,7 +230,7 @@
                 android:layout_height="match_parent"
                 style="?android:attr/borderlessButtonStyle"
                 android:background="@drawable/numberbuttonborder"
-                android:text="0"
+                android:text="@string/nr0"
                 android:layout_span="2"/>
             <Button
                 android:id="@+id/Dot"
